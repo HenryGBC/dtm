@@ -18,5 +18,9 @@
         var vm = this;
         console.log('InitController');
 
+        angular.extend(vm, {
+            isAuthenticate: 'siiii'
+        });
+
     }
 })();
