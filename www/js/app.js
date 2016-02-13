@@ -5,7 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'dtm.services' is found in services.js
 // 'dtm.controllers' is found in controllers.js
-angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
+angular.module('dtm',
+    ['ionic',
+    'dtm.controllers',
+    'dtm.services',
+    'dtm.authenticate',
+    'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -30,7 +35,11 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
+  .state('init', {
+      url: '/init',
+      templateUrl: 'templates/authenticate/init.html',
+      controller: 'InitController as init'
+    })
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
