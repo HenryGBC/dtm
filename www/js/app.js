@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'dtm.services' is found in services.js
 // 'dtm.controllers' is found in controllers.js
-angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
+angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenticate', 'dtm.profiles', 'firebase'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, Authenticate) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,9 +20,10 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    Authenticate.isAuthenticate();
   });
 })
-
+.constant('FURL', 'https://donatusmedicamentos.firebaseio.com/')
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -30,7 +31,11 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
+  .state('init', {
+      url: '/init',
+      templateUrl: 'templates/authenticate/init.html',
+      controller: 'InitController as init'
+    })
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
@@ -50,12 +55,12 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.profile', {
+      url: '/profile',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-profile': {
+          templateUrl: 'templates/profiles/profile.html',
+          controller: 'ProfileController as p'
         }
       }
     })
@@ -80,6 +85,6 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/init');
 
 });

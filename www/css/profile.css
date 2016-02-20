@@ -1,0 +1,16 @@
+.content-profile-form .eye-edit {
+  line-height: 1.5em;
+  font-size: 2em;
+  margin-left: 1em; }
+  .content-profile-form .eye-edit i {
+    cursor: pointer; }
+  .content-profile-form .eye-edit .ion-eye {
+    color: #11c1f3; }
+  .content-profile-form .eye-edit .ion-eye-disabled {
+    color: #ddd; }
+
+.content-profile-form .item-input {
+  border-bottom: 1px solid #ddd;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px; }

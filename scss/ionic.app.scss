@@ -20,4 +20,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import "mixins";
+@import "overwrite";
+@import "profile";
+@import "init";
 
+
+@font-face {
+    font-family: 'dosis';
+    src: url('fonts/Dosis-Regular.otf');
+}
+
+body{
+    font-family: 'dosis';
+}

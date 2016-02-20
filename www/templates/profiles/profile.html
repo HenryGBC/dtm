@@ -1,0 +1,73 @@
+<ion-view view-title="Profile">
+  <ion-content>
+    <ion-list>
+        <div class="list content-profile-form">
+
+            <div class="row no-padding">
+              <div class="col col-75">
+                  <label class="item item-input">
+                      <input type="text" placeholder="Nombres" ng-model="p.profile.name.value">
+                  </label>
+              </div>
+              <div class="col eye-edit">
+                  <i ng-click="p.profile.name.public=!p.profile.name.public"ng-click="p.profile.name.public=!p.profile.name.public" ng-class="{'ion-eye': p.profile.name.public, 'ion-eye-disabled': !p.profile.name.public}"></i>
+              </div>
+            </div>
+            <div class="row no-padding">
+              <div class="col col-75">
+                  <label class="item item-input">
+                      <input type="text" placeholder="Apellidos" ng-model="p.profile.lastname.value">
+                  </label>
+              </div>
+              <div class="col eye-edit">
+                  <i  ng-click="p.profile.lastname.public=!p.profile.lastname.public" ng-class="{'ion-eye': p.profile.lastname.public, 'ion-eye-disabled': !p.profile.lastname.public}"></i>
+              </div>
+            </div>
+            <div class="row no-padding">
+              <div class="col col-75">
+                  <label class="item item-input">
+                      <input  ng-disabled="true" type="text" ng-model="p.profile.email.value" placeholder="Email">
+                  </label>
+              </div>
+              <div class="col eye-edit">
+                  <i  ng-click="p.profile.email.public=!p.profile.email.public" ng-class="{'ion-eye': p.profile.email.public, 'ion-eye-disabled': !p.profile.email.public}"></i>
+              </div>
+            </div>
+            <div class="row no-padding">
+              <div class="col col-75">
+                  <label class="item item-input">
+                      <input type="text" ng-model="p.profile.twitter.value" placeholder="Twitter username">
+                  </label>
+              </div>
+              <div class="col eye-edit">
+                  <i ng-click="p.profile.twitter.public=!p.profile.twitter.public" ng-class="{'ion-eye': p.profile.twitter.public, 'ion-eye-disabled': !p.profile.twitter.public}"></i>
+              </div>
+            </div>
+
+            <div class="row no-padding">
+              <div class="col col-75">
+                  <label class="item item-input">
+                      <input type="text" ng-model="p.profile.facebook.value" placeholder="Facebook Profile">
+                  </label>
+              </div>
+              <div class="col eye-edit">
+                  <i  ng-click="p.profile.facebook.public=!p.profile.facebook.public" ng-class="{'ion-eye': p.profile.facebook.public, 'ion-eye-disabled': !p.profile.facebook.public}"></i>
+              </div>
+            </div>
+            <div class="row no-padding">
+              <div class="col col-75">
+                  <label class="item item-input">
+                      <input type="text" ng-model="p.profile.telf.value" placeholder="Telefono">
+                  </label>
+              </div>
+              <div class="col eye-edit">
+                  <i  ng-click="p.profile.telf.public=!p.profile.telf.public" ng-class="{'ion-eye': p.profile.telf.public, 'ion-eye-disabled': !p.profile.telf.public}"></i>
+              </div>
+            </div>
+            <button class="button button-block button-positive" ng-click="p.editProfile()">
+              Guardar
+            </button>
+        </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
