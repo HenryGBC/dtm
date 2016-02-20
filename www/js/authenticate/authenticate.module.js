@@ -4,7 +4,7 @@
   angular
     .module('dtm.authenticate', [
       'dtm.authenticate.controllers',
-      'dtm.authenticate.services'
+      'dtm.authenticate.services',
     ]);
 
 

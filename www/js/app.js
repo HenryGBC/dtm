@@ -5,14 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'dtm.services' is found in services.js
 // 'dtm.controllers' is found in controllers.js
-angular.module('dtm',
-    ['ionic',
-    'dtm.controllers',
-    'dtm.services',
-    'dtm.authenticate',
-    'firebase'])
+angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenticate', 'dtm.profiles', 'firebase'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, Authenticate) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,9 +20,10 @@ angular.module('dtm',
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    Authenticate.isAuthenticate();
   });
 })
-
+.constant('FURL', 'https://donatusmedicamentos.firebaseio.com/')
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states

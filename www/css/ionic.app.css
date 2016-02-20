@@ -9731,9 +9731,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.bar-header {
-  border: none !important; }
-
 .box-slides {
   width: 100%;
   height: 95vh; }
@@ -9778,3 +9775,31 @@ a.button {
       text-shadow: 1px 2px rgba(128, 128, 128, 0.52);
       width: 80%;
       margin: 0 auto; }
+
+.header-slide {
+  height: 30vh;
+  background: #8FE1F9; }
+  .header-slide .logo {
+    font-size: 6em;
+    border-radius: 50%;
+    text-align: center;
+    width: 100%;
+    color: #FFFFFF; }
+
+.content-slide-forms .tabs {
+  top: 0;
+  -webkit-box-shadow: -1px -3px 11px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px -3px 11px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px -2px 7px 0px rgba(0, 0, 0, 0.65);
+  background: #00ADDE;
+  border-color: #0a9dc7; }
+  .content-slide-forms .tabs .tab-item {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold; }
+
+.content-slide-forms .form-login {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4em; }

@@ -57,6 +57,57 @@
           </div>
       </div>
     </ion-slide>
+    <ion-slide>
+      <div class="box-slides box-slides-blue">
+          <div class="content-slide-forms" >
+              <div class="row row-center">
+              </div>
+               <div class="tabs">
+                 <a class="tab-item" ng-click="init.formRegister=false; init.formLogin=true; ">
+                    <span>Iniciar sesión</span>
+                 </a>
+                 <a class="tab-item" ng-click="init.formLogin=false; init.formRegister=true" >
+                   <span>Registrate</span>
+                 </a>
+               </div>
+
+               <div class="form-login" ng-show="init.formLogin">
+                   <div class="list">
+                      <label class="item item-input item-floating-label">
+                        <span class="input-label">Email</span>
+                        <input ng-model="init.user.email" type="email" placeholder="Email">
+                      </label>
+                      <label class="item item-input item-floating-label">
+                        <span class="input-label">Password</span>
+                        <input ng-model="init.user.password" type="password" placeholder="Password">
+                      </label>
+                    </div>
+                    <button class="button button-block button-positive" ng-click="init.login()">
+                      Iniciar sesión
+                    </button>
+               </div>
+               <div class="form-login form-register" ng-show="init.formRegister">
+                   <div class="list">
+                       <label class="item item-input item-floating-label">
+                         <span class="input-label">Name</span>
+                         <input ng-model="init.user.name" type="text" placeholder="Name">
+                       </label>
+                      <label class="item item-input item-floating-label">
+                        <span class="input-label">Email</span>
+                        <input ng-model="init.user.email" type="email" placeholder="Email">
+                      </label>
+                      <label class="item item-input item-floating-label">
+                        <span class="input-label">Password</span>
+                        <input ng-model="init.user.password" type="password" placeholder="Password">
+                      </label>
+                    </div>
+                    <button class="button button-block button-positive" ng-click="init.register()">
+                       Registrate
+                    </button>
+               </div>
+          </div>
+      </div>
+    </ion-slide>
   </ion-slide-box>
   </ion-content>
 </ion-view>

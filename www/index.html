@@ -8,9 +8,10 @@
 
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
-
+    <ink href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
 
 
     <!-- Firebase -->
@@ -28,7 +29,11 @@
     <script src="js/services.js"></script>
     <script src="js/authenticate/authenticate.module.js"></script>
     <script src="js/authenticate/controllers/init.controller.js"></script>
-  </head>
+    <script src="js/authenticate/services/authenticate.service.js"></script>
+    <script src="js/profiles/profiles.module.js"></script>
+    <script src="js/profiles/controllers/profile.controller.js"></script>
+    <script src="js/profiles/services/profile.service.js"></script>
+  </ink></head>
   <body ng-app="dtm">
     <!--
       The nav bar that will be updated as we navigate between views.
