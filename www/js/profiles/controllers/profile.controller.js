@@ -14,9 +14,20 @@
         console.log('ProfileController');
 
         angular.extend(vm, {
-            isAuthenticate: 'siiii'
+            editProfile: editProfile
         });
 
+
+        _activate();
+
+
+        function editProfile(){
+            vm.profile.$save();
+        }
+        function _activate(){
+            vm.profile = Authenticate.getUser().profile;
+            console.log(vm.profile);
+        }
 
 
     }

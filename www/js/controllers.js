@@ -21,8 +21,12 @@ angular.module('dtm.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, Authenticate) {
   $scope.settings = {
     enableFriends: true
   };
+
+  $scope.logout = function(){
+      Authenticate.logout();
+  }
 });

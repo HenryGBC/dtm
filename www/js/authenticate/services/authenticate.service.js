@@ -10,12 +10,13 @@
     function Authenticate(FURL, $firebaseAuth, $state, $firebaseObject, Profile) {
         var ref = new Firebase(FURL);
         var auth = $firebaseAuth(ref);
-
+        var user = {};
         var Auth = {
             register:register,
             login:login,
             isAuthenticate:isAuthenticate,
-            user:{}
+            getUser:getUser,
+            logout:logout
         }
 
         return Auth;
@@ -47,18 +48,22 @@
             auth.$onAuth(function(authData){
                 console.log(authData);
                if(authData){
-                   Auth.user = authData;
-                   console.log(Profile.getProfiles());
-                   var profile = $firebaseObject(ref.child('profile').child(authData.uid));
-                   console.log('the user has already loggerd in');
-                   profile.$loaded().then(function() {
-                       console.log(profile); // "bar"
-                   });
+                   user = authData;
+                   user.profile = Profile.getProfile(authData.uid);
                    $state.go('tab.dash')
                }else{
                    $state.go('init')
                }
             });
+        }
+
+        function logout(){
+            auth.$unauth();
+            $state.go('init')
+        }
+
+        function getUser(){
+            return user;
         }
 
 

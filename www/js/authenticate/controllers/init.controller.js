@@ -28,19 +28,24 @@
 
 
         function login(){
-            Authenticate.login(vm.user).then(function(){
-                $state.go('tab.dash');
-            }, function(err){
-                console.log(err);
-            })
+            if(vm.user.email && vm.user.password){
+                Authenticate.login(vm.user).then(function(){
+                    $state.go('tab.dash');
+                }, function(err){
+                    console.log(err);
+                });
+            }
         }
 
         function register(){
-            Authenticate.register(vm.user).then(function(){
-                $state.go('tab.dash');
-            }, function(err){
-                console.log(err);
-            })
+
+            if(vm.user.name && vm.user.email && vm.user.password){
+                Authenticate.register(vm.user).then(function(){
+                    $state.go('tab.dash');
+                }, function(err){
+                    console.log(err);
+                })
+            }
         }
 
     }

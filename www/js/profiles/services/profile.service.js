@@ -23,7 +23,7 @@
             var profile = {
                 name: {value:user.name, public: true},
                 lastname: {value:'', public: false},
-                email: {value:user.name, public: false},
+                email: {value:user.email, public: false},
                 twitter: {value:'', public: false},
                 facebook: {value:'', public: false},
                 telf: {value:'', public: false}
@@ -36,8 +36,8 @@
             return profiles;
         }
 
-        function getProfile(){
-
+        function getProfile(uid){
+            return $firebaseObject(ref.child('profiles').child(uid));
         }
 
 

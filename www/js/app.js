@@ -55,12 +55,12 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenti
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.profile', {
+      url: '/profile',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-profile': {
+          templateUrl: 'templates/profiles/profile.html',
+          controller: 'ProfileController as p'
         }
       }
     })

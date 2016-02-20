@@ -1,0 +1,26 @@
+@import "variables";
+
+.content-profile-form{
+    .eye-edit{
+        line-height: 1.5em;
+        font-size: 2em;
+        margin-left: 1em;
+        i{
+            cursor: pointer;
+        }
+        .ion-eye{
+            color: $color-primary;
+        }
+        .ion-eye-disabled{
+            color: $color-gray;
+        }
+
+    }
+
+    .item-input{
+        border-bottom: 1px solid #ddd;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+    }
+}
