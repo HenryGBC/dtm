@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'dtm.services' is found in services.js
 // 'dtm.controllers' is found in controllers.js
-angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenticate', 'dtm.profiles', 'firebase'])
+angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenticate', 'dtm.profiles', 'dtm.medicines', 'firebase', 'ngCordova'])
 
 .run(function($ionicPlatform, Authenticate) {
   $ionicPlatform.ready(function() {
@@ -49,8 +49,8 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenti
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        templateUrl: 'templates/medicines/list.html',
+        controller: 'ListController as md'
       }
     }
   })
@@ -64,6 +64,15 @@ angular.module('dtm', ['ionic', 'dtm.controllers', 'dtm.services', 'dtm.authenti
         }
       }
     })
+    .state('tab.upload', {
+        url: '/upload',
+        views: {
+          'tab-upload': {
+            templateUrl: 'templates/medicines/upload.html',
+            controller: 'UploadController as up'
+          }
+        }
+      })
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
