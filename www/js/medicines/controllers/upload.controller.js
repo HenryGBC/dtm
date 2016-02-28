@@ -26,10 +26,9 @@
             if(Object.keys(vm.medicine).length===8){
                 console.log(vm.medicine);
                 vm.medicine.dateExpire = vm.medicine.dateExpire.toString();
-                Medicine.addMedicine(vm.medicine).then(function(){
-                    vm.medicine={};
-                    $state.go('tab.dash');
-                });
+                Medicine.addMedicine(vm.medicine);
+                vm.medicine={};
+                $state.go('tab.dash');
             }
         }
 
@@ -58,8 +57,6 @@
                 dateFormat: 'dd-MM-yyyy', //Optional
                 closeOnSelect: false, //Optional
             };
-
-            console.log(Medicine.all());
 
         }
 

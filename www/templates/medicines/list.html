@@ -2,7 +2,7 @@
 
   <ion-content class="padding">
       <div class="list-medicines">
-          <div class="card relative" ng-repeat="medicine in md.medicines">
+          <div class="card relative " ng-repeat="medicine in md.medicines | filter:md.search | orderBy : '-uploadDate'">
               <div class="item row">
                 <div class="col">
                     <h3>{{medicine.name}}</h3>
@@ -32,6 +32,9 @@
               <div class="show-contact" ng-click="md.showContact(medicine.profile)">
                   <i class="ion-android-person"></i>
               </div>
+              <div class="remove-medicine" ng-click="md.remove(medicine.$id)" ng-if="medicine.profile==md.profileId">
+                  <i class="ion-close"></i>
+              </div>
               <div class="item item-text-wrap">
                     {{medicine.info}}
               </div>
@@ -40,30 +43,46 @@
           </div>
       </div>
 
-  </ion-content>
-  <script id="profile-modal.html" type="text/ng-template">
-      <ion-modal-view>
-        <ion-header-bar>
-            <h1 class="title">{{profile.name.value}} {{md.profile.lastname}}</h1>
-            <div class="close-modal " ng-click="md.closeModal()">
-              <i class="ion-close"></i>
-           </div>
-        </ion-header-bar>
-        <ion-content>
 
-          <div class="field" ng-if="profile.email.public">
-              <h4><strong>Email: </strong>{{profile.email.value}}</h4>
-          </div>
-          <div class="field" ng-if="profile.facebook.public">
-              <h4><strong>Facebook: </strong><a href="https://twitter.com/{{profile.facebook.value}}">{{profile.facebook.value}}</a></h4>
-          </div>
-          <div class="field" ng-if="profile.twitter.public">
-              <h4><strong>Twitter: </strong> <a href="https://twitter.com/{{profile.twitter.value}}">{{profile.twitter.value}}</a></h4>
-          </div>
-          <div class="field" ng-if="profile.telf.public">
-              <h4><strong>Telefono: </strong>{{profile.telf.value}}</h4>
-          </div>
-        </ion-content>
-      </ion-modal-view>
-  </script>
+  </ion-content>
+  <div class="search-bar">
+      <div >
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search" ng-model="md.search">
+          </label>
+       </div>
+  </div>
 </ion-view>
+
+<script id="profile-modal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+          <h1 class="title">{{profile.name.value}} {{profile.lastname.value}}</h1>
+          <div class="close-modal " ng-click="md.closeModal()">
+            <i class="ion-close"></i>
+         </div>
+      </ion-header-bar>
+      <ion-content>
+
+        <div class="field" ng-if="profile.email.public">
+            <h4><strong>Email: </strong>{{profile.email.value}}</h4>
+        </div>
+        <div class="field" ng-if="profile.facebook.public">
+            <h4><strong>Facebook: </strong><a href="https://twitter.com/{{profile.facebook.value}}">{{profile.facebook.value}}</a></h4>
+        </div>
+        <div class="field" ng-if="profile.twitter.public">
+            <h4><strong>Twitter: </strong> <a href="https://twitter.com/{{profile.twitter.value}}">{{profile.twitter.value}}</a></h4>
+        </div>
+        <div class="field" ng-if="profile.telf.public">
+            <h4><strong>Telefono: </strong>{{profile.telf.value}}</h4>
+        </div>
+        <div class="field">
+            <p>
+                Esta es la información publica de esta persona para poder contactarla
+                para poder adquirir la(s) medicina(s).
+            </p>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+</script>

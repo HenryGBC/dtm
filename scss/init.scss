@@ -103,7 +103,9 @@
 
 
 //List Medicines
-
+.list-medicines{
+    margin-bottom: 7em;
+}
 .show-contact{
     position: absolute;
     right: 0;
@@ -128,4 +130,29 @@
     font-size: 1.5em;
     text-align: center;
     line-height: 30px;
+}
+.field{
+    margin-bottom: 1em;
+
+    p{
+        padding: 1em;
+        font-size: 1.2em;
+    }
+}
+
+.search-bar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.remove-medicine{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    font-size: 1.2em;
+    padding: 5px;
+    color: red;
+    cursor: pointer;
 }

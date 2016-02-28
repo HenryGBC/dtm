@@ -17,7 +17,8 @@
             medicines:[],
             mapDate:mapDate,
             showContact:showContact,
-            closeModal:closeModal
+            closeModal:closeModal,
+            remove:remove
         });
 
 
@@ -26,7 +27,6 @@
         function showContact(id){
             $scope.profile = Profile.getProfile(id);
 
-            console.log($scope.profile);
             vm.modal.show();
 
         }
@@ -36,11 +36,16 @@
             vm.modal.hide();
         }
         function mapDate(date){
-            console.log();
             return new Date(date);
+        }
+        function remove(item){
+            console.log(item);
+            Medicine.removeItem(item);
         }
 
         function _activate(){
+            vm.profileId = Authenticate.getUser().profile.$id;
+            console.log(vm.profileId);
             $ionicModal.fromTemplateUrl('profile-modal.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
@@ -48,7 +53,7 @@
                 vm.modal = modal;
             });
             vm.medicines = Medicine.all();
-
+            console.log(vm.medicines);
 
         }
 
