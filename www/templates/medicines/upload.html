@@ -1,0 +1,53 @@
+<ion-view view-title="Profile">
+  <ion-content>
+    <ion-list>
+        <div class="list content-profile-form">
+
+            <div class="row">
+              <div class="col ">
+                  <label class="item item-input">
+                      <input type="text" placeholder="Nombre de la medicina" ng-model="up.medicine.name">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col ">
+                  <label class="item item-input">
+                      <input type="text" placeholder="Presentacíon 'Ampolla, tableta, capsula etc'" ng-model="up.medicine.present">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-40">
+                <ionic-datepicker input-obj="up.dateExpire">
+                    <label class="item item-input">
+                         <input type="text" placeholder="Vencimiento" > {{up.medicine.dateExpire | date:dateExpire.dateFormat}}</input>
+                    </label>
+                </ionic-datepicker>
+              </div>
+              <div class="col">
+                  <label class="item item-input">
+                      <input type="text" placeholder="Miligramos" ng-model="up.medicine.mg">
+                  </label>
+              </div>
+              <div class="col ">
+                  <label class="item item-input">
+                      <input type="number" placeholder="Cantidad" ng-model="up.medicine.cant">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col ">
+                    <label class="item item-input">
+                         <textarea placeholder="Información Adicional" ng-model="up.medicine.info"></textarea>
+                    </label>
+                </div>
+            </div>
+
+            <button class="button button-block button-positive" ng-click="up.uploadData()">
+              Donar
+            </button>
+        </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
